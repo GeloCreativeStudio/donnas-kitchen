@@ -4,481 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donna's Kitchen - Menu</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Basic Reset & Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #1a1a1a; /* Dark background for context */
-            color: #fff;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px; /* Add padding for smaller screens */
-            background-image: radial-gradient(circle at center, #252525 0%, #1a1a1a 70%);
-        }
-
-        /* Main Container */
-        .menu-container {
-            width: 100%;
-            max-width: 1000px; /* Adjust as needed */
-            min-height: 700px; /* Ensure minimum height */
-            background: #0a0a0a; /* Darker solid background */
-            display: flex;
-            position: relative;
-            overflow: hidden; /* Important for absolutely positioned elements */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-            border-radius: 8px; /* Slightly more rounded corners */
-        }
-
-        /* Left Visual Area Styling */
-        .left-visual {
-            flex-basis: 40%; /* Slightly narrower */
-            position: relative;
-            background:
-                radial-gradient(circle at 30% 50%, rgba(204, 0, 0, 0.12) 10%, transparent 60%), /* Enhanced red glow */
-                linear-gradient(to bottom right, #4d0000, #110000 80%); /* Richer dark red gradient */
-            padding: 50px 20px; /* More top/bottom padding */
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center content horizontally */
-            overflow: hidden; /* Clip overflowing elements */
-            border-right: 1px solid #333; /* Subtle separator */
-        }
-
-        /* Circular Lines Effect (Optional - keeping for style) */
-        .left-visual::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 85%; /* Slightly larger */
-            padding-bottom: 85%; /* Maintain aspect ratio */
-            max-width: 400px;
-            max-height: 400px;
-            border: 2px dashed rgba(255, 255, 255, 0.15); /* More visible */
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
-        .left-visual::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 95%; /* Slightly larger */
-            padding-bottom: 95%; /* Maintain aspect ratio */
-            max-width: 440px;
-            max-height: 440px;
-            border: 1px solid rgba(255, 255, 255, 0.12); /* More visible */
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
-
-        .main-title {
-            position: relative; /* Position normally now */
-            z-index: 3;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 40px; /* More space below title */
-        }
-
-        .main-title h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3.8rem; /* Larger size */
-            font-weight: 700;
-            color: #fff;
-            line-height: 1;
-            margin: 0;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Enhanced shadow */
-            letter-spacing: 2px; /* Added letter spacing */
-        }
-
-        .main-title h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3.8rem; /* Larger size */
-            font-weight: 700;
-            color: #cc0000; /* Red color */
-            line-height: 1;
-            margin: -10px 0 0 0; /* Overlap slightly */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Enhanced shadow */
-            letter-spacing: 1px; /* Added letter spacing */
-        }
-
-        .food-image {
-            position: relative; /* Position normally */
-            width: 90%; /* Increased from 75% */
-            max-width: 340px; /* Increased from 280px */
-            height: auto;
-            z-index: 2;
-            border-radius: 50%; /* Circular image maybe? */
-            border: 4px solid rgba(255,255,255,0.15); /* Thicker, more visible border */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7); /* Enhanced shadow */
-            margin-top: 20px; /* Space above image */
-        }
-        
-        /* Placeholder style if no image */
-        .food-image[src=""] {
-            display: block;
-            background-color: rgba(255,255,255,0.05);
-            border-radius: 50%;
-            aspect-ratio: 1 / 1;
-            width: 75%;
-            max-width: 250px;
-            border: 3px solid rgba(255,255,255,0.1);
-            margin: 20px auto 0 auto;
-        }
-
-        /* Right Content Area Styling */
-        .right-content {
-            flex-basis: 60%; /* Wider */
-            background-color: #111; /* Slightly different dark shade */
-            /* Texture background */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm78 54c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zM42 61c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7z" fill="%232a2a2a" fill-opacity="0.1"/></svg>'),
-                             linear-gradient(to bottom, #1c1c1c, #0a0a0a);
-            background-size: 50px 50px, 100%; /* Size for SVG dots and gradient */
-            padding: 20px 35px 25px 35px; /* Increased padding */
-            display: flex;
-            flex-direction: column;
-            position: relative; /* For absolute positioning inside */
-            z-index: 1;
-        }
-
-        .menu-header {
-            background: linear-gradient(135deg, #8b0000, #cc0000); /* Rich gradient instead of flat red */
-            color: #fff;
-            text-align: center;
-            padding: 15px 0; /* More padding */
-            margin: -20px -35px 0 -35px; /* Extend to edges, pull up */
-            position: relative; /* For the curve */
-            text-transform: uppercase;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            letter-spacing: 2px; /* More letter spacing */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Softer shadow */
-            z-index: 2;
-            border-bottom: 2px solid #ffcc00; /* Gold border */
-        }
-        
-        .menu-header h3 {
-            margin: 0;
-            font-size: 2.4rem;
-            position: relative;
-            display: inline-block;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Text shadow for depth */
-        }
-        
-        .menu-header h3::before,
-        
-
-        /* Curved bottom element */
-        
-
-        .menu-categories {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columns */
-            gap: 30px 40px; /* Increased row and column gap */
-            margin-top: 40px; /* Adjusted space below header curve */
-            margin-bottom: 25px; /* Space before bottom feature */
-            /* flex-grow: 1; Remove flex-grow to allow bottom feature to push up */
-            opacity: 1;
-        }
-
-        .menu-category {
-            padding-bottom: 20px; /* More bottom padding */
-        }
-
-        .menu-category h4 {
-            font-family: 'Oswald', sans-serif;
-            color: #ffcc00; /* Yellow color */
-            font-size: 1.4rem; /* Slightly larger */
-            text-transform: uppercase;
-            margin-bottom: 15px; /* More space below heading */
-            position: relative;
-            display: inline-block;
-            letter-spacing: 1px; /* Added letter spacing */
-        }
-
-        .menu-category h4::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, #ffcc00, transparent); /* Gradient underline */
-        }
-
-        .category-note {
-            font-size: 0.85rem;
-            color: #cc0000; /* Red color */
-            margin-top: -10px;
-            margin-bottom: 12px;
-            font-style: italic;
-        }
-
-        .menu-category ul {
-            list-style: none;
-        }
-
-        .menu-category li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px; /* More space between items */
-            padding-left: 20px; /* More indent */
-            position: relative;
-            font-size: 1rem;
-        }
-
-        .menu-category li::before {
-            content: '•'; /* Bullet point */
-            position: absolute;
-            left: 0;
-            color: #cc0000; /* Red color */
-            font-size: 1.2rem; /* Larger bullet */
-        }
-
-        .price {
-            background-color: #1f1f1f; /* Slightly lighter background */
-            color: #ffcc00; /* Yellow color */
-            padding: 3px 10px; /* More padding */
-            border-radius: 4px;
-            font-weight: 700;
-            min-width: 60px; /* Ensure consistent width */
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-        }
-
-        /* Hover Effect on Menu Items */
-        .menu-category li:hover {
-            cursor: default;
-        }
-
-        /* Bottom Feature Styling */
-        .bottom-feature {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-        }
-
-        .footer-logo {
-            flex-basis: 40%;
-            text-align: center;
-        }
-
-        .footer-logo h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1;
-            margin: 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            letter-spacing: 1px;
-        }
-
-        .footer-logo h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #cc0000;
-            line-height: 1;
-            margin: -5px 0 0 0;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            letter-spacing: 1px;
-        }
-
-        .hours-contact {
-            flex-basis: 60%;
-            padding-left: 20px;
-            border-left: 1px solid #333;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 850px) {
-            .menu-container {
-                flex-direction: column; /* Stack sections vertically */
-                max-width: 500px; /* Adjust max width for single column */
-                min-height: auto; /* Allow height to adjust */
-            }
-
-            .left-visual {
-                flex-basis: auto; /* Allow height to adjust */
-                height: auto; /* Auto height */
-                padding: 40px 20px; /* Adjust padding */
-                border-right: none; /* Remove border */
-                border-bottom: 1px solid #333; /* Add bottom border */
-            }
-             .left-visual::before, .left-visual::after {
-                 /* Adjust circles */
-                 width: 70%; padding-bottom: 70%; max-width: 300px;
-             }
-             .left-visual::after { width: 80%; padding-bottom: 80%; max-width: 330px;}
-
-            .main-title h1, .main-title h2 {
-                font-size: 2.8rem; /* Reduce title size */
-            }
-            .food-image { width: 60%; max-width: 200px; margin-top: 15px;}
-
-
-            .right-content {
-                flex-basis: auto;
-                padding: 20px; /* Consistent padding */
-            }
-
-            .menu-header {
-                 margin: -20px -20px 0 -20px; /* Adjust margin */
-                 font-size: 1.5rem;
-            }
-             .menu-header::after { bottom: -15px; height: 30px; }
-
-            .menu-categories {
-                grid-template-columns: 1fr; /* Single column for categories */
-                gap: 25px;
-                margin-top: 40px; /* Adjust spacing */
-            }
-            .bottom-feature {
-                flex-direction: column; /* Stack image and text */
-                align-items: flex-start; /* Align items left */
-                gap: 15px;
-                padding-top: 15px;
-            }
-            .footer-logo {
-                flex-basis: 100%;
-                text-align: center;
-                margin-bottom: 15px;
-            }
-            .hours-contact {
-                flex-basis: 100%;
-                padding-left: 0;
-                border-left: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-             .main-title h1, .main-title h2 {
-                font-size: 2.2rem; /* Further reduce title size */
-            }
-             .main-title h2 { margin-top: -8px; }
-             .food-image { width: 50%; max-width: 160px;}
-
-            .menu-category h4 { font-size: 1.1rem; }
-             .menu-category li { font-size: 0.85rem; padding-left: 15px; }
-             .price { font-size: 0.8rem; padding: 2px 6px; min-width: 45px; }
-             .category-note { font-size: 0.75rem;}
-             .bottom-feature { padding-top: 10px;}
-             .hours-contact { font-size: 0.8rem;}
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="menu-container">
-        <!-- Left Visual Section -->
-        <div class="left-visual">
-            <div class="main-title">
-                <h1>DONNA'S</h1>
-                <h2>KITCHEN</h2>
+    <div class="container">
+        <!-- Header remains outside the main grid -->
+        <header class="main-header">
+            <div class="logo logo-top">
+                <h1>DONNA'S KITCHEN</h1>
             </div>
-            <!-- IMPORTANT: Replace 'src' with a relevant image -->
-            <img src="image_fx_ (61).jpg" alt="Donna's Kitchen - Featured Dish" class="food-image">
-            <!-- Removed bottom-left contact info -->
-        </div>
+        </header>
 
-        <!-- Right Content Section (Menu) -->
-        <div class="right-content">
-            <header class="menu-header">
-                <h3>MENU</h3>
-            </header>
+        <!-- NEW: Wrapper for the main grid layout -->
+        <div class="main-layout-grid">
 
-            <div class="menu-categories">
-                <!-- Category 1: Rice Meals -->
-                <section class="menu-category">
-                    <h4>RICE MEALS</h4>
-                    <ul>
-                        <li><span>Lechon Kawali</span><span class="price">P100</span></li>
-                        <li><span>Lumpia Shanghai</span><span class="price">P70</span></li>
-                        <li><span>Buffalo Wings</span><span class="price">P100</span></li>
-                        <li><span>Buttered Chicken</span><span class="price">P120</span></li>
-                        <li><span>Quarter leg</span><span class="price">P120</span></li>
-                        <li><span>Hotsilog</span><span class="price">P100</span></li>
-                        <li><span>Porksilog</span><span class="price">P100</span></li>
-                    </ul>
-                </section>
-                <!-- Category 2: Short Order -->
-                <section class="menu-category">
-                    <h4>SHORT ORDER</h4>
-                    <ul>
-                        <li><span>Pancit Bihon </span><span class="price">P100</span></li>
-                        <li><span>Pancit Canton </span><span class="price">P200</span></li>
-                        <li><span>Extra Rice </span><span class="price">P15</span></li>
-                        <li><span>Egg </span><span class="price">P10</span></li>
-                    </ul>
-                </section>
-
-                <!-- Category 3: Sizzlers -->
-                <section class="menu-category">
-                    <h4>SIZZLERS</h4>
-                     <p class="category-note">(All served with RICE & EGG)</p>
-                    <ul>
-                        <li><span>Sizzling Sisig</span><span class="price">P100</span></li>
-                        <li><span>Sizzling Liempo</span><span class="price">P100</span></li>
-                        <li><span>Sizzling Tocino</span><span class="price">P100</span></li>
-                        <li><span>Sizzling Tapa</span><span class="price">P100</span></li>
-                        <li><span>Sizzling Hungarian</span><span class="price">P100</span></li>
-                        <li><span>Sizzling Hotdog</span><span class="price">P150</span></li>
-                        <li><span>Sizzling Tbone</span><span class="price">P130</span></li>
-                        <li><span>Sizzling Porkchop</span><span class="price">P100</span></li>
-                    </ul>
-                </section>
-
-                <!-- Category 4: Pulutan Style -->
-                <section class="menu-category">
-                    <h4>PULUTAN STYLE</h4>
-                     <ul>
-                        <li><span>Sizzling Sisig</span><span class="price">P200</span></li>
-                        <li><span>Sizzling Liempo</span><span class="price">P200</span></li>
-                        <li><span>Sizzling Tocino</span><span class="price">P200</span></li>
-                        <li><span>Sizzling Tapa</span><span class="price">P200</span></li>
-                        <li><span>Sizzling Hungarian</span><span class="price">P200</span></li>
-                        <li><span>Lechon Kawali</span><span class="price">P200</span></li>
-                        <li><span>Lumpia Shanghai</span><span class="price">P150</span></li>
-                        <li><span>Buffalo Wings</span><span class="price">P200</span></li>
-                        <li><span>Buttered Chicken</span><span class="price">P200</span></li>
-                    </ul>
-                </section>
-            </div>
-
-            <!-- Bottom Feature: Logo, Hours, Contact -->
-            <div class="bottom-feature">
-                <div class="footer-logo">
-                    <h1>DONNA'S</h1>
-                    <h2>KITCHEN</h2>
+            <!-- Left Section -->
+            <aside class="left-panel">
+                <div class="image-section">
+                    <!-- Use your transparent image -->
+                    <img src="image.png" alt="Donna's Kitchen Dish">
                 </div>
-                <div class="hours-contact">
-                    <p><strong>Hours:</strong> Open Daily: 5pm to 3am</p>
-                    <p><strong>Contact Us:</strong> <span>May A. Oronce - 09062790399</span></p>
+                <!-- You might want the bottom logo here too, or keep it in the footer -->
+            </aside>
+
+            <!-- Right Section -->
+            <main class="right-panel menu-section">
+                <h2 class="menu-title">MENU</h2>
+                <div class="menu-grid">
+                    <div class="menu-category">
+                        <h3>RICE MEALS</h3>
+                        <ul>
+                            <li><span>Lechon Kawali</span><span>P100</span></li>
+                            <li><span>Lumpia Shanghai</span><span>P70</span></li>
+                            <li><span>Buffalo Wings</span><span>P100</span></li>
+                            <li><span>Buttered Chicken</span><span>P120</span></li>
+                            <li><span>Quarter leg</span><span>P120</span></li>
+                            <li><span>Hotsilog</span><span>P100</span></li>
+                            <li><span>Porksilog</span><span>P100</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-category">
+                        <h3>SHORT ORDER</h3>
+                         <ul>
+                            <li><span>Pancit Bihon</span><span>P100</span></li>
+                            <li><span>Pancit Canton</span><span>P200</span></li>
+                            <li><span>Extra Rice</span><span>P15</span></li>
+                            <li><span>Egg</span><span>P10</span></li>
+                         </ul>
+                    </div>
+                    <!-- NEW SIZZLERS CATEGORY -->
+                    <div class="menu-category">
+                        <h3>SIZZLERS</h3>
+                        <p class="sizzler-note">(All served with RICE & EGG)</p>
+                         <ul>
+                            <li><span>Sizzling Sisig</span><span>P100</span></li>
+                            <li><span>Sizzling Liempo</span><span>P100</span></li>
+                            <li><span>Sizzling Tocino</span><span>P100</span></li>
+                            <li><span>Sizzling Tapa</span><span>P100</span></li>
+                            <li><span>Sizzling Hungarian</span><span>P100</span></li>
+                            <li><span>Sizzling Hotdog</span><span>P150</span></li>
+                            <li><span>Sizzling Tbone</span><span>P130</span></li>
+                            <li><span>Sizzling Porkchop</span><span>P100</span></li>
+                         </ul>
+                    </div>
+                    <div class="menu-category">
+                        <h3>PULUTAN STYLE</h3>
+                         <ul>
+                            <li><span>Sizzling Sisig</span><span>P200</span></li>
+                            <li><span>Sizzling Liempo</span><span>P200</span></li>
+                            <li><span>Sizzling Tocino</span><span>P200</span></li>
+                            <li><span>Sizzling Tapa</span><span>P200</span></li>
+                            <li><span>Sizzling Hungarian</span><span>P200</span></li>
+                            <li><span>Lechon Kawali</span><span>P200</span></li>
+                            <li><span>Lumpia Shanghai</span><span>P150</span></li>
+                            <li><span>Buffalo Wings</span><span>P200</span></li>
+                            <li><span>Buttered Chicken</span><span>P200</span></li>
+                         </ul>
+                    </div>
                 </div>
+            </main>
+
+        </div> <!-- End of main-layout-grid -->
+
+        <!-- Footer remains outside the main grid -->
+        <footer class="main-footer">
+            <div class="logo logo-bottom">
+                DONNA'S KITCHEN
             </div>
-
-        </div> <!-- End right-content -->
-    </div> <!-- End menu-container -->
-
-    <!-- No external JS needed for this version as animations are CSS based -->
+            <div class="contact-info">
+                <!-- Updated Hours and Contact Info -->
+                <p>Hours: Open Daily: 5pm to 3am</p>
+                <p>Contact Us: May A. Oronce - 09062790399</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

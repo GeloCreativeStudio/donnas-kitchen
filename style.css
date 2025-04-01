@@ -1,0 +1,325 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(to bottom, #6b0f0f, #2b0000);
+    color: #EAEAEA;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Reduced body padding */
+    padding: 15px;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px; /* Keep max-width for large screens, but internal padding reduced */
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.main-header {
+    /* Reduced header padding */
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.logo h1, .logo {
+    font-family: 'Cinzel', serif;
+    color: #F5F5F5;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.logo-top h1 {
+    font-size: 3rem; /* Slightly smaller title */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* --- Main Grid Layout --- */
+.main-layout-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    /* Reduced grid gap and padding */
+    gap: 30px;
+    padding: 15px 40px;
+    width: 100%;
+}
+
+/* Left Panel (Logo/Image) */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Reduced top padding */
+    padding-top: 10px;
+    min-width: 0;
+}
+
+.image-section {
+   width: 100%;
+   max-width: 420px; /* Slightly smaller max image width */
+   /* Reduced top margin */
+   margin-top: 20px;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.5));
+}
+
+/* Right Panel (Menu) */
+.right-panel {
+    /* Reduced top padding */
+    padding-top: 5px;
+    min-width: 0;
+}
+
+.menu-title {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 2.6rem; /* Slightly smaller title */
+    /* Reduced bottom margin */
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #F5F5F5;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    white-space: nowrap;
+}
+
+/* --- Menu Grid (Inside Right Panel) --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Reduced grid gap */
+    gap: 25px;
+}
+
+.menu-category {
+     min-width: 0;
+}
+
+
+.menu-category h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem; /* Slightly smaller title */
+    /* Reduced bottom margin & padding */
+    margin-bottom: 15px;
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #8B0000;
+    color: #EAEAEA;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Style for the Sizzler note */
+.sizzler-note {
+    font-size: 0.60em;
+    font-style: italic;
+    text-align: center;
+    /* Adjusted margins slightly */
+    margin: -8px 0 12px 0;
+    color: #ddd;
+    padding: 0 5px;
+    white-space: normal;
+}
+
+.menu-category ul {
+    list-style: none;
+    /* Reduced side padding */
+    padding: 0 5px;
+}
+
+.menu-category li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Reduced bottom margin & padding */
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    font-size: 0.95rem; /* Slightly smaller font */
+    color: #BDBDBD;
+    border-bottom: 1px dotted rgba(189, 189, 189, 0.2);
+    white-space: normal;
+}
+.menu-category li:last-child {
+    border-bottom: none;
+}
+
+.menu-category li span:first-child {
+    /* Reduced right margin */
+    margin-right: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    color: #CCCCCC;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    min-width: 0;
+    line-height: 1.4;
+}
+
+.menu-category li span:last-child {
+    font-weight: bold;
+    color: #F5F5F5;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1px 6px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* Footer */
+.main-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Reduced footer padding & top margin */
+    padding: 20px 40px;
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid #444444;
+}
+
+.logo-bottom {
+    font-size: 1.5rem; /* Slightly smaller */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #EAEAEA;
+    white-space: nowrap;
+}
+
+.contact-info {
+    text-align: right;
+    font-size: 0.9rem; /* Slightly smaller */
+    color: #BDBDBD;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 4px; /* Reduced margin */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Large Tablets / Small Desktops */
+@media (max-width: 1200px) {
+    .main-layout-grid {
+        grid-template-columns: 1fr 2fr; /* Keep ratio */
+        /* Adjusted padding/gap */
+        gap: 25px;
+        padding: 15px 30px;
+    }
+    .logo-top h1 { font-size: 2.8rem; }
+    .menu-title { font-size: 2.4rem; }
+    .menu-grid {
+        /* Adjusted gap */
+        gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        }
+    .menu-category h3 { font-size: 1.3rem; }
+    .menu-category li { font-size: 0.9rem; }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+     .main-layout-grid {
+        grid-template-columns: 1fr;
+        /* Adjusted padding/gap */
+        gap: 20px;
+        padding: 15px 25px;
+    }
+    .left-panel { padding-top: 0; }
+    .image-section { max-width: 320px; margin-top: 15px; margin-bottom: 15px; }
+    .right-panel { padding-top: 0; }
+    .menu-title { margin-bottom: 20px; font-size: 2.2rem; }
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Keep gap reasonable */
+        gap: 25px;
+    }
+     .main-footer { padding: 15px 25px; }
+
+    /* Allow wrapping for category headers and contact info on tablets */
+    .menu-category h3 {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+     .contact-info p {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+    .menu-category li { align-items: flex-start; }
+}
+
+/* Small Tablets / Large Phones */
+@media (max-width: 768px) {
+    .container { max-width: 100%; border-radius: 0;}
+     body { padding: 0; } /* Remove body padding for edge-to-edge */
+     .main-header { padding: 15px 20px; }
+     .main-layout-grid { padding: 10px 20px; }
+     .logo-top h1 { font-size: 2.2rem; }
+     .menu-title { font-size: 2rem; }
+     .menu-grid { gap: 20px; } /* Reduce gap slightly */
+     .main-footer { flex-direction: column; align-items: center; text-align: center; padding: 15px 20px; }
+     .contact-info { text-align: center; margin-top: 10px; }
+
+    /* Ensure wrapping for titles that might still be nowrap */
+    .logo h1, .logo { white-space: normal; }
+    .menu-title { white-space: normal; }
+    .logo-bottom { white-space: normal; }
+}
+
+/* Phones */
+@media (max-width: 576px) {
+     .main-header { padding: 15px 15px; } /* Keep some padding */
+    .main-layout-grid { padding: 10px 15px; } /* Keep some padding */
+    .logo-top h1 { font-size: 2rem; }
+    .image-section { max-width: 260px; } /* Adjust as needed */
+    .menu-title { font-size: 1.8rem; }
+    .menu-grid {
+        grid-template-columns: 1fr; /* Switch to 1 column */
+        gap: 25px; /* Keep reasonable gap for stacking */
+        }
+    .menu-category h3 { font-size: 1.2rem; border-bottom-width: 1px;}
+    .menu-category li { font-size: 0.85rem; } /* Smallest font size */
+    .logo-bottom { font-size: 1.3rem; }
+    .contact-info { font-size: 0.85rem; }
+
+    /* Ensure all text wraps */
+    .menu-category h3 { white-space: normal; overflow: visible; text-overflow: clip;}
+    .menu-category li span:first-child { white-space: normal; overflow: visible; text-overflow: clip;}
+    .contact-info p { white-space: normal; overflow: visible; text-overflow: clip;}
+    .logo h1, .logo { white-space: normal; }
+    .menu-title { white-space: normal; }
+    .logo-bottom { white-space: normal; }
+}

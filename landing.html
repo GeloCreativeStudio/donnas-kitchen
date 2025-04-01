@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donna's Kitchen - Welcome</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Specific styles for landing page centering -->
+    <style>
+        /* Adjust body/container for vertical centering */
+        body {
+            /* Ensure body allows container to center */
+            align-items: center; /* Center .container vertically */
+        }
+        .container {
+            /* Let container determine its height based on content */
+             min-height: auto;
+             /* Center container content horizontally */
+             align-items: center;
+             /* Stack header, grid, footer and distribute space */
+             justify-content: space-around; /* Or 'center' if you want less space */
+             height: calc(100vh - 30px); /* Try to fill viewport height minus body padding */
+        }
+
+        /* Center header content (already text-align: center) */
+        .main-header {
+            width: 100%; /* Ensure it spans container width */
+            padding-top: 30px; /* Add some space at the top */
+            padding-bottom: 15px;
+        }
+
+        /* Center the grid area and its content */
+        .main-layout-grid {
+            grid-template-columns: 1fr; /* Force single column */
+            justify-items: center;    /* Center grid item horizontally */
+            align-content: center;      /* Center grid item vertically */
+            flex-grow: 1;             /* Allow grid to take available space */
+            width: 100%;              /* Ensure it spans container width */
+            padding: 10px 0;          /* Reduce vertical padding */
+            display: flex;            /* Use flex for easier centering of single item */
+            justify-content: center;  /* Center .left-panel horizontally */
+            align-items: center;      /* Center .left-panel vertically */
+        }
+
+        /* Left panel holds the image */
+        .left-panel {
+            padding: 0; /* Reset padding */
+            /* align-items: center; is inherited */
+            justify-content: center; /* Center image vertically within panel */
+            max-width: 90%;          /* Prevent panel taking excessive width */
+        }
+        .image-section {
+            margin-top: 0;      /* Reset margin */
+            max-width: 450px;   /* Limit image size */
+            width: 100%;        /* Ensure image scales */
+        }
+
+
+        /* Center footer content */
+        .main-footer {
+            width: 100%; /* Ensure it spans container width */
+            flex-direction: column; /* Stack logo and contact info */
+            justify-content: center; /* Center content vertically */
+            align-items: center;   /* Center content horizontally */
+            text-align: center;    /* Center text within */
+            padding: 15px 20px 30px 20px; /* Adjust padding, more bottom */
+            margin-top: 15px; /* Reduce top margin */
+        }
+
+        .logo-bottom {
+            margin-bottom: 15px; /* Space between logo and contact */
+        }
+
+        .contact-info {
+            text-align: center; /* Ensure contact info text is centered */
+            margin-bottom: 0;
+        }
+
+        /* Ensure contact info paragraphs wrap and center */
+        .contact-info p {
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        /* Ensure responsiveness doesn't break centering */
+         @media (max-width: 1200px) {
+            .main-layout-grid { grid-template-columns: 1fr; }
+         }
+         @media (max-width: 992px) {
+             .main-layout-grid { grid-template-columns: 1fr; }
+             .image-section { max-width: 350px; }
+         }
+         @media (max-width: 576px) {
+            .image-section { max-width: 280px; }
+            .main-header { padding-top: 20px; }
+            .main-footer { padding-bottom: 20px; }
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo logo-top">
+                <h1>DONNA'S KITCHEN</h1>
+            </div>
+        </header>
+
+        <!-- Wrapper for the main layout grid (now centers the image) -->
+        <div class="main-layout-grid">
+            <!-- Left Section (Image) -->
+            <aside class="left-panel">
+                <div class="image-section">
+                    <!-- Use your transparent image -->
+                    <img src="image.png" alt="Donna's Kitchen Dish">
+                </div>
+            </aside>
+            <!-- Right Panel Removed -->
+        </div> <!-- End of main-layout-grid -->
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="logo logo-bottom">
+                DONNA'S KITCHEN
+            </div>
+            <div class="contact-info">
+                <p>Hours: Open Daily: 5pm to 3am</p>
+                <p>Contact Us: May A. Oronce - 09062790399</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
